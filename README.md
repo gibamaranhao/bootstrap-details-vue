@@ -2,8 +2,8 @@
 
 A simple bootstrap details view in vue.js
 
-## Instalation
-Instalation by npm
+## Installation
+Installation by npm
 ```shell
 npm install --save bootstrap-details-vue
 ```
@@ -49,6 +49,156 @@ export default {
         "created_at": 1611642440,
         "updated_at": 1611642440
       },
+    }
+  }, 
+}
+</script>
+```
+
+## Usage on Demand
+You can use bootstrap-details-vue on demand importing directly the component:
+
+```vue
+<template>
+  <div>
+    <details-vue :model="user"></details-vue>
+  </div>
+</template>
+
+<script>
+import { DetailsVue } from 'bootstrap-details-vue'
+
+export default {
+  components: {
+    DetailsVue
+  },
+  data() {
+    return {
+      user: {
+        "id": 1,
+        "username": "giba",
+        // ...
+      },
+    }
+  }, 
+}
+</script>
+```
+
+## Easy to use properties
+boostrap-details-vue has a set of properties to easily configure the grid
+
+```vue
+<template>
+  <div>
+    <details-vue :model="user" borderless bordered striped label-align-left start-case ></details-vue>
+  </div>
+</template>
+```
+Comming soon new properties to configure the colors.
+
+## Configure Fields
+Using the property 'fields' you can configure which fields will be shown and change the label to these fields:
+```vue
+<template>
+  <div>
+    <details-vue :model="user" :fields="fields" ></details-vue>
+  </div>
+</template>
+
+<script>
+import { DetailsVue } from 'bootstrap-details-vue'
+
+export default {
+  components: {
+    DetailsVue
+  },
+  data() {
+    return {
+      user: {
+        "id": 1,
+        "username": "giba",
+        "email": "giba@email.com",
+        "firstname": "Giba",
+        "lastname": "Maranhão",
+        "status": "active",
+        "role": "admin",
+        "created_at": 1611642440,
+        "updated_at": 1611642440
+      },
+      fields: [
+        'id',
+        'email',
+        {key: "username", label: "Login"},
+        {key: "firstname", label: "First Name"},
+        'status',
+      ]
+    }
+  }, 
+}
+</script>
+```
+## Slots
+Using 'slots' you can show the data exactly as you need it:
+
+```vue
+<template>
+  <div>
+    <details-vue :model="user" :fields="fields" >
+
+      <template #label(email)="{data}">
+        <td class="text-danger text-right font-weight-bold"> {{ data.label }}  </td>
+      </template>
+
+      <template #value(email)="{data}">
+        <td> <a :href="`mailto:${data.value}`"> {{ data.value }} </a> </td>
+      </template>
+
+      <template #value(created_at)="{data}">
+        <td> {{ new Date(data.value) }} </td>
+      </template>
+    </details-vue>
+  </div>
+</template>
+```
+You can add fields that are not in the model, just add it in 'fields' and create the slot related to it 
+
+```vue
+<template>
+  <div>
+    <details-vue :model="user" :fields="fields" >
+
+      <template #value(complete_name)="{data}">
+        <td> {{ data.model.firstname}} {{ data.model.lastname }} </td>
+      </template>
+
+    </details-vue>
+  </div>
+</template>
+
+<script>
+import { DetailsVue } from 'bootstrap-details-vue'
+
+export default {
+  components: {
+    DetailsVue
+  },
+  data() {
+    return {
+      user: {
+        "id": 1,
+        "username": "giba",
+        "email": "giba@email.com",
+        "firstname": "Giba",
+        "lastname": "Maranhão",
+        "status": "active",
+        "role": "admin",
+        "created_at": 1611642440,
+        "updated_at": 1611642440
+      },
+      fields: [
+        'complete_name'
+      ]
     }
   }, 
 }

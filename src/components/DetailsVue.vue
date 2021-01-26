@@ -6,9 +6,11 @@
         <tr v-for="(item, index) of getItems" :key="index">
           <slot 
             :name="getModelLabel(item)"
-            :label-align-left="labelAlignLeft"
             v-bind:data="{...item, model}">
-            <details-vue-label :item="item" :start-case="startCase"></details-vue-label>
+            <details-vue-label 
+              :label-align-left="labelAlignLeft"
+              :item="item" 
+              :start-case="startCase"></details-vue-label>
           </slot>
 
           <slot 

@@ -10,6 +10,10 @@ const BootstrapDetailsVue = {
   }
 }
 
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(BootstrapDetailsVue);
+}
+
 export default BootstrapDetailsVue;
 
 export { DetailsVue, DetailsVueLabel, DetailsVueValue };

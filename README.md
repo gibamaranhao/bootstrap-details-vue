@@ -24,8 +24,7 @@ Vue.use(BootstrapDetailsVue)
 ## Basic Usage
 ```vue
 <template>
-  <div class="container">
-    <h1> Home </h1>
+  <div>
 
     <details-vue :model="user"></details-vue>
 
@@ -91,7 +90,9 @@ boostrap-details-vue has a set of properties to easily configure the grid
 ```vue
 <template>
   <div>
-    <details-vue :model="user" borderless bordered striped label-align-left start-case ></details-vue>
+    <details-vue :model="user" 
+      borderless bordered striped 
+      label-align-left start-case ></details-vue>
   </div>
 </template>
 ```
@@ -211,8 +212,8 @@ export default {
 | model | Object | null | Model object to show in details |
 | fields | Array | null | The fields configuration |
 | striped | Boolean | false | Show rows with striped colors |
-| borderless | Boolean | false | Remove inner lines |
-| bordered | Boolean | true | Remove outer lines |
+| borderless | Boolean | false | Set grid without inner lines |
+| bordered | Boolean | true | Set grid with outer lines |
 | label-align-left | Boolean | false | Show the label aligned to left |
 | start-case | Boolean | true | Show first words uppercase in label |
 

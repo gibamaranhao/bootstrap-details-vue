@@ -4,12 +4,12 @@ A simple bootstrap details view in vue.js
 
 ## Instalation
 Instalation by npm
-```script
+```shell
 npm install --save bootstrap-details-vue
 ```
 
 Use globally in Vue project
-```
+```JavaScript
 import Vue from 'vue'
 import App from './App.vue'
 
@@ -22,20 +22,17 @@ Vue.use(BootstrapDetailsVue)
 ```
 
 ## Basic Usage
-```
+```vue
 <template>
   <div class="container">
     <h1> Home </h1>
 
-    <details-vue
-      :model="user"></details-vue>
+    <details-vue :model="user"></details-vue>
 
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import axios from 'axios'
 
 export default {
   name: 'Home',

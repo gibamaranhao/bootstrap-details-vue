@@ -3,7 +3,8 @@
     <details-vue
       v-if="user"
       striped
-      bordered 
+      bordered
+      label-align-left
       :fields="fields"
       :model="user"
       >

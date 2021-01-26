@@ -8,6 +8,7 @@
   },
   "repository": "https://github.com/gibamaranhao/bootstrap-details-vue",
   "keywords": ["bootstrap", "vue", "detail"],
+  "license": "MIT",
   "main": "./dist/bootstrap-details-vue.common.js",
   "files": ["dist"],
   "scripts": {

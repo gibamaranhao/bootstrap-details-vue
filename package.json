@@ -1,10 +1,19 @@
 {
   "name": "bootstrap-details-vue",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "author": {
+    "name": "Giba Maranhão",
+    "email": "gilberto.oliveira.m@gmai.com"
+  },
+  "repository": "https://github.com/gibamaranhao/bootstrap-details-vue",
+  "keywords": ["bootstrap", "vue", "detail"],
+  "main": "./dist/bootstrap-details-vue.common.js",
+  "files": ["dist"],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "build-library": "vue-cli-service build --target lib --name bootstrap-details-vue ./src/install.js"
   },
   "dependencies": {
     "bootstrap": "^4.6.0",

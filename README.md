@@ -1,19 +1,4 @@
 # bootstrap-details-vue
 
-## Project setup
-```
-npm install
-```
+A simple bootstrap details view in vue.js
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

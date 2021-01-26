@@ -1,0 +1,11 @@
+{
+  "id": 1,
+  "username": "giba",
+  "firstname": "Giba",
+  "lastname": "Maranhão",
+  "email": "giba@email.com",
+  "status": "active",
+  "role": "admin",
+  "created_at": 1611545335,
+  "updated_at": 1611545335
+}

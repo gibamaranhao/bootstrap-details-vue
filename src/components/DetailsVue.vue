@@ -2,8 +2,7 @@
   <div>
     <table class="table" :class="getClasses" v-if="model"> 
       <tbody>
-
-        <tr v-for="(item, index) of getItems" :key="index">
+        <tr  v-for="(item, index) of getItems" :key="index">
           <slot 
             :name="getModelLabel(item)"
             v-bind:data="{...item, model}">
@@ -16,10 +15,9 @@
           <slot 
             :name="getModelValue(item)" 
             v-bind:data="{...item, model}">
-            <details-vue-value :item="item"></details-vue-value>
+            <td> {{ item.value }} </td>
           </slot>
         </tr>
-
       </tbody>
     </table>    
   </div>
@@ -27,12 +25,10 @@
 
 <script>
 import DetailsVueLabel from './DetailsVueLabel.vue'
-import DetailsVueValue from './DetailsVueValue.vue'
 
 export default {
   components: {
     DetailsVueLabel, 
-    DetailsVueValue,
   },
   props: {
     model: Object,
@@ -40,6 +36,7 @@ export default {
     striped: Boolean,
     bordered: Boolean,
     borderless: Boolean,
+    variant: String,
     labelAlignLeft:  {
       type: Boolean,
       default: () => false,
@@ -55,6 +52,7 @@ export default {
         'table-striped': this.striped,
         'table-bordered': this.bordered,
         'table-borderless': this.borderless,
+        [`table-${this.variant}`]: this.variant !== null,
       }
     },
     getItems() {

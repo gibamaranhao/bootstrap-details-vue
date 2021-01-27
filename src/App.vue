@@ -1,29 +1,15 @@
 <template>
   <div id="app" class="container mt-3">
     <details-vue
-      v-if="user"
       striped
       bordered
-      label-align-left
-      :fields="fields"
-      :model="user"
-      >
+      :model="user">
 
-      <template #label(username)="{data}">
-        <details-vue-label :item="data">
-          Chupa
-        </details-vue-label>
-      </template>
-
-      <template #value(username)="{data}">
-        <td> {{ data.value }} </td>
-      </template> 
-
-      <template #value(rg)>
-        <td>45684384348</td>
-      </template>
-
-    </details-vue>
+        <template #value(username)="{data}">
+          <td> Oi, meu nome é {{ data.value }}</td> 
+        </template>
+        
+      </details-vue>
   </div>
 </template>
 
@@ -32,7 +18,6 @@ import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import DetailsVue      from './components/DetailsVue.vue'
-import DetailsVueValue from './components/DetailsVueValue.vue'
 import DetailsVueLabel from './components/DetailsVueLabel.vue'
 
 
@@ -41,7 +26,6 @@ export default {
   components: {
     DetailsVue,
     DetailsVueLabel,
-    DetailsVueValue,
   },
   data() {
     return {

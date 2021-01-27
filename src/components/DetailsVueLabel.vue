@@ -1,13 +1,13 @@
 <template>  
     <td class="font-weight-bold" :class="getClasses"> 
       <slot>
-        {{ getTitle() }}
-      </slot> 
+        {{ getTitle }}
+      </slot>
     </td>  
 </template>
 
 <script>
-import { startCase } from 'lodash'
+import { startCase, get } from 'lodash'
 
 export default {
   props: {
@@ -25,14 +25,13 @@ export default {
   computed: {
     getClasses() {
       return {'text-right': !this.labelAlignLeft};
+    },
+    getTitle() {
+      return this.startCase ? startCase(get(this, 'item.label')) : get(this, 'item.label');
+      
     }
   },
 
-  methods: {
-    getTitle() {
-      return this.startCase ? startCase(this.item.label) : this.item.label;
-    }
-  }
 }
 </script>
 

@@ -1,11 +1,15 @@
 # bootstrap-details-vue
 
-A simple bootstrap details view in vue.js
+A simple bootstrap details view in vue.js using conventional table
 
 ## Installation
-Installation by npm
+Installation with npm
 ```shell
 npm install --save bootstrap-details-vue
+```
+Installation with yarn
+```shell
+yarn add bootstrap
 ```
 
 Use globally in Vue project
@@ -95,7 +99,6 @@ boostrap-details-vue has a set of properties to easily configure the grid
   </div>
 </template>
 ```
-Comming soon new properties to configure the colors.
 
 ## Configure Fields
 Using the property 'fields' you can configure which fields will be shown and change the label to these fields:
@@ -139,7 +142,7 @@ export default {
 </script>
 ```
 ## Slots
-Using 'slots' you can show the data exactly as you need it:
+Using **vue slots** you can show the data exactly as you need it:
 
 ```vue
 <template>
@@ -161,7 +164,7 @@ Using 'slots' you can show the data exactly as you need it:
   </div>
 </template>
 ```
-You can add fields that are not in the model, just add it in 'fields' and create the slot related to it 
+You can add fields that are not in the model, just add it in **fields** and create the slot related to it 
 
 ```vue
 <template>
@@ -205,6 +208,10 @@ export default {
 </script>
 ```
 
+## Styling
+You can alternate color of the DetailsVue using the **variant** property according to your variant configurations.
+Inside the cells you can use vue slots to add the bootstrap classes to the &lt;td&gt; tags. Ex.: table-primary, bg-dark, text-light, etc.
+
 ## Properties
 | Name | Type | Default | Description |
 | ------|------|----|--------|
@@ -215,4 +222,52 @@ export default {
 | bordered | Boolean | true | Remove outer lines |
 | label-align-left | Boolean | false | Show the label aligned to left |
 | start-case | Boolean | true | Show first words uppercase in label |
+| variant | String | null | Variant color for hole table |
+
+## DetailsVueLabel Component
+
+The component **DetailVueLabel** renders the default style of DetailsVue field labels. You can use it inside a named slot of the label.
+```vue
+<template>
+  <div id="app">
+   <details-vue :model="user">
+     <template #label(username)>
+       <details-vue-label> User Name </details-vue-label>
+     </template>
+   </details-vue>
+  </div>
+</template>
+
+<script>
+
+import { DetailsVue, DetailsVueLabel } from 'bootstrap-details-vue'
+
+export default {
+  name: 'App',
+  components: {
+    DetailsVue,
+    DetailsVueLabel,
+  },
+  data() {
+    return {
+      user: {
+        id: 1,
+        username: 'giba',
+        //...
+      }
+    }
+  }
+}
+</script>
+```
+### properties
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| item     | Object | null  | Item data from slot { key, label, value, model }.To use it you must remove content inside |
+| label-align-left | Boolean | false | Align text left |
+| start-case | Boolean | true | Fist letters in upper case. Only available with param **item** defined |
+
+
+
+
 
